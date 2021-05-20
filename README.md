@@ -40,7 +40,7 @@ delete the forecast controler file
 <br/>&emsp;&emsp;http://localhost:5000/api/commands
 <br/>&emsp;&emsp;http://localhost:5000/api/commands/123
 
-## create the dependecy injection controller
+## create the dependency injection controller
 
 video : 51:00
 
