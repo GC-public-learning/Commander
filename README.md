@@ -20,8 +20,8 @@ go vs studio code
 <br/>&emsp;&emsp;- code -r .Commander (open in existing window)
 
 ### preparation
-delete de forecast controler file
-<br/>delete de model class weatherforecast.cs to
+delete the forecast controler file
+<br/>delete the model class weatherforecast.cs to
 
 <br/>create the "Models" folder
 <br/>&emsp;create "Command.cs" file in the "Models folder"
