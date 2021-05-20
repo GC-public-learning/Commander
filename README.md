@@ -16,7 +16,7 @@ go vs studio code
 <br/><br/>&emsp;go your folder project
 &emsp;tape commands
 <br/>&emsp;&emsp;- dotnet new (see all available projects)
-<br/>&emsp;&emsp;- dotnet new webapi -n .Commander (Commander is the  project name)
+<br/>&emsp;&emsp;- dotnet new webapi -n Commander (Commander is the  project name)
 <br/>&emsp;&emsp;- code -r .Commander (open in existing window)
 
 ### preparation
