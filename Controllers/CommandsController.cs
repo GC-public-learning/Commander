@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Commander.Controllers{
 
-    //api/commands
+    // api/commands
     [Route("api/[controller]")] 
     [ApiController]
     public class CommandsController : ControllerBase {
@@ -16,7 +16,7 @@ namespace Commander.Controllers{
             return Ok(commandItems); // Ok -> code 200
         }
 
-        // GET api/commands/{id} -> to get a JSON value
+        // api/commands/{id} -> to get a JSON value
         [HttpGet("{id}")] 
         public ActionResult <Command> GetCommandById(int id) {
             var commandItem = _repository.GetCommandById(id);
