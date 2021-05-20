@@ -17,7 +17,7 @@ go vs studio code
 &emsp;tape commands
 <br/>&emsp;&emsp;- dotnet new (see all available projects)
 <br/>&emsp;&emsp;- dotnet new webapi -n Commander (Commander is the  project name)
-<br/>&emsp;&emsp;- code -r .Commander (open in existing window)
+<br/>&emsp;&emsp;- code -r Commander (open in existing window)
 
 ### preparation
 delete the forecast controler file
