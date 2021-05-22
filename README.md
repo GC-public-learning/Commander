@@ -27,7 +27,7 @@ delete the forecast controler file
 
 (content of files created is not described !)
 
-<br/>create the "Models" folder
+<br/>create the [Models](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Models) folder
 <br/>&emsp;create "Command.cs" file in the "Models folder" to make the class : 
 ~~~
 namespace Commander.Models {
@@ -39,7 +39,7 @@ namespace Commander.Models {
     }
 }
 ~~~
-<br/>create a "Data" folder for repository
+<br/>create a [Data](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Data) folder for repository
 <br/>&emsp;create "ICommanderRepo.cs" in the "Data" folder (make interface for the entire project) :
 ~~~
 using System.Collections.Generic;
