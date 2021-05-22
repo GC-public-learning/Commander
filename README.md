@@ -78,7 +78,7 @@ namespace Commander.Data{
     }
 }
 ~~~
-<br/> create "CommandsController.cs" in [Controllers](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Controllers) folder (configure the url and controllers)
+<br/> create "CommandsController.cs" in [Controllers/](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Controllers) folder (configure the url and controllers)
 ~~~
 using System.Collections.Generic;
 using Commander.Data;
