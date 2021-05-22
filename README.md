@@ -25,8 +25,6 @@ delete the forecast controler file
 
 ## create 1st controller with route and fake data to retrieve
 
-(content of files created is not described !)
-
 <br/>create the [Models](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Models) folder
 <br/>&emsp;create "Command.cs" file in the "Models folder" to make the class : 
 ~~~
