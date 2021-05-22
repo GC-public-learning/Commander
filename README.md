@@ -7,6 +7,11 @@ link of the video course : https://www.youtube.com/watch?v=fmvcAzHpsk8
 thanks to the youtuber "Les Jackson" ^^
 
 
+## notes
+
+the project was generated with the .net 5.0.203
+<br>with this new version, new features have been added like "open API" (Swagger) which with you'll easily tests urls and automaticaly generate documentation
+
 ## instructions
 
 ### install
@@ -23,7 +28,7 @@ go vs studio code
 delete the forecast controler file
 <br/>delete the model class weatherforecast.cs to
 
-## create 1st controller with route and fake data to retrieve
+## 1) create 1st controller with route and fake data to retrieve
 
 <br/>create the [Models/](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Models) folder
 <br/>&emsp;create "Command.cs" file in the "Models folder" to make the class : 
@@ -119,9 +124,47 @@ dotnet run
 <br/>&emsp;&emsp;http://localhost:5000/api/commands
 <br/>&emsp;&emsp;http://localhost:5000/api/commands/123
 
-## create the dependency injection controller
+if you use the dotnet v 5... you can also use the page from "Swagger" service to test in your navigator the different urls of your API : 
+~~~
+http://localhost:5000/swagger/
+https://localhost:5001/swagger/index.html (if the 1st url doesn't make work the calls)
+~~~
+you can alos install the swagger with the nuget package manager if you have an older version of dotnet
 
-video : 51:00
+## 2) configure the dependency injection container
+
+modify "ConfigureServices" method in the "Startup.cs" file :
+~~~
+public void ConfigureServices(IServiceCollection services)
+{
+
+    services.AddControllers();
+    services.AddScoped<ICommanderRepo, MockCommanderRepo>(); // line added
+    services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Commander", Version = "v1" });
+    });
+}
+~~~
+make the contructor for "CommandsController" and change the "\_repository" attribute value
+
+~~~
+private readonly ICommanderRepo _repository;
+
+public CommandsController(ICommanderRepo repository) {
+	_repository = repository;
+}
+
+~~~
+
+### test :
+in terminal : dotnet run then test the urls
+
+~~~
+
+video 55:36
+
+
 
 
 
