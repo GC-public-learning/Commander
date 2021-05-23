@@ -208,6 +208,62 @@ dotnet tool install --global dotnet-ef
 ~~~
 
 
+## 4) configure dbContext, ConnectionString and update de db with our model (not data yet)
 
+- create "CommanderContext.cs" file on the Data folder :
 
+~~~
+using Commander.Models;
+using Microsoft.EntityFrameworkCore;
+namespace Commander.Data {
+    
+    public class CommanderContext : DbContext {
+        //constructor
+        public CommanderContext(DbContextOptions<CommanderContext> opt) : base(opt) {
 
+        }
+        public DbSet<Command> Commands { get; set; }
+     
+    } 
+}
+~~~
+- add lines to configure the connection on the db on the "appsettings.json" file
+~~~
+"ConnectionStrings": {
+    "CommanderConnection": "Server=localhost; Initial Catalog=CommanderDB; User ID=CommanderAPI; Password=passwd"
+  }
+~~~
+- add line on "ConfigureServices" method from the "Startup.cs" file :
+~~~
+services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer
+    (Configuration.GetConnectionString("CommanderConnection")));
+~~~
+- tape commande line in your vs terminal : to generate de Migration folder with its files
+~~~
+dotnet ef migrations add InitialMigration
+dotnet ef migrations remove 
+~~~
+- we remove the migrations files because we before have to add rules in our models Commands.cs 
+~~~
+using System.ComponentModel.DataAnnotations;
+
+namespace Commander.Models {
+    public class Command {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(250)]
+        public string HowTo { get; set; }
+        [Required]
+        public string Line { get; set; }
+        [Required]
+        public string Plateform { get; set; }
+    }
+}
+~~~
+- then regenerate de migration
+- after execute command line in the terminal tu update the database linked
+~~~~
+dotnet ef database update
+~~~~
+- check on MSSMS if the tables has beens created
