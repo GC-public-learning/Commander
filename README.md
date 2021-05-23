@@ -156,16 +156,8 @@ public CommandsController(ICommanderRepo repository) {
 }
 
 ~~~
-
 ### test :
 in terminal : dotnet run then test the urls
-
-<<<<<<< HEAD
-=======
-video 55:36
-
-
->>>>>>> b0bef73618e8107fdb71274b54c51670ee0e78f3
 
 ## 3) set up database and install entity framework packages
 
