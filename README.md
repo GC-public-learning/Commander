@@ -160,15 +160,46 @@ public CommandsController(ICommanderRepo repository) {
 ### test :
 in terminal : dotnet run then test the urls
 
+
+## 3) set up database and install entity framework packages
+
+- connection on sql server with MSSMS : server name : localhost and sql server authentification with sa
+- create a specific login for the app
+&emsp;&emsp;- Security/login -> click right/new login
+&emsp;&emsp;&emsp; Login name : CommanderAPI
+&emsp;&emsp;&emsp; sql server authentification
+&emsp;&emsp;&emsp;set up the passwords
+&emsp;&emsp;&emsp; unpick "enforce password policy" and other options
+&emsp;&emsp;&emsp; add sysadmin on Server Roles place
+- disconnect and reconnect as CommanderAPI user
+- go nuget.org and search entityframework
+&emsp;&emsp;- select Microsoft entity frameworkCore
+&emsp;&emsp;- copy the path .NET CLI
+&emsp;&emsp;- paste the path on your vs terminal and execute, you don't have to specify the version ->
+~~~
+dotnet add package Microsoft.EntityFrameworkCore
+~~~
+- install this packages to in the same way : 
+<br>&emsp;"Microsoft.EntityFrameworkCore.Design" 
+<br>&emsp;"Microsoft.EntityFrameworkCore.SqlServer"
+
+all the installed packages should appear on the .csproj file
+~~~
+<ItemGroup>
+	<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+	<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+</ItemGroup>
 ~~~
 
-video 55:36
-
-
-
-
-
-
+- tape this command line to install the Entity Framework Core .NET Command-line Tools
+~~~
+dotnet tool install --global dotnet-ef
+~~~
 
 
 
