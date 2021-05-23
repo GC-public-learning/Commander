@@ -160,28 +160,21 @@ public CommandsController(ICommanderRepo repository) {
 ### test :
 in terminal : dotnet run then test the urls
 
-<<<<<<< HEAD
-=======
-video 55:36
-
-
->>>>>>> b0bef73618e8107fdb71274b54c51670ee0e78f3
-
 ## 3) set up database and install entity framework packages
 
 - connection on sql server with MSSMS : server name : localhost and sql server authentification with sa
 - create a specific login for the app
-&emsp;&emsp;- Security/login -> click right/new login
-&emsp;&emsp;&emsp; Login name : CommanderAPI
-&emsp;&emsp;&emsp; sql server authentification
-&emsp;&emsp;&emsp;set up the passwords
-&emsp;&emsp;&emsp; unpick "enforce password policy" and other options
-&emsp;&emsp;&emsp; add sysadmin on Server Roles place
+</br>&emsp;&emsp;- Security/login -> click right/new login
+</br>&emsp;&emsp;&emsp; Login name : CommanderAPI
+</br>&emsp;&emsp;&emsp; sql server authentification
+</br>&emsp;&emsp;&emsp;set up the passwords
+</br>&emsp;&emsp;&emsp; unpick "enforce password policy" and other options
+</br>&emsp;&emsp;&emsp; add sysadmin on Server Roles place
 - disconnect and reconnect as CommanderAPI user
 - go nuget.org and search entityframework
-&emsp;&emsp;- select Microsoft entity frameworkCore
-&emsp;&emsp;- copy the path .NET CLI
-&emsp;&emsp;- paste the path on your vs terminal and execute, you don't have to specify the version ->
+</br>&emsp;&emsp;- select Microsoft entity frameworkCore
+</br>&emsp;&emsp;- copy the path .NET CLI
+</br>&emsp;&emsp;- paste the path on your vs terminal and execute, you don't have to specify the version ->
 ~~~
 dotnet add package Microsoft.EntityFrameworkCore
 ~~~
