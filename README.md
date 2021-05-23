@@ -255,7 +255,7 @@ namespace Commander.Models {
 }
 ~~~
 - then regenerate de migration
-- after execute command line in the terminal tu update the database linked
+- after execute command line in the terminal to update the database linked
 ~~~~
 dotnet ef database update
 ~~~~
