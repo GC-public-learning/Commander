@@ -129,7 +129,7 @@ if you use the dotnet v 5... you can also use the page from "Swagger" service to
 http://localhost:5000/swagger/
 https://localhost:5001/swagger/index.html (if the 1st url doesn't make work the calls)
 ~~~
-you can alos install the swagger with the nuget package manager if you have an older version of dotnet
+if you want to use Swagger and you have an older version of dotnet you can install this one with the nuget package manager
 
 ## 2) configure the dependency injection container
 
@@ -160,6 +160,12 @@ public CommandsController(ICommanderRepo repository) {
 ### test :
 in terminal : dotnet run then test the urls
 
+<<<<<<< HEAD
+=======
+video 55:36
+
+
+>>>>>>> b0bef73618e8107fdb71274b54c51670ee0e78f3
 
 ## 3) set up database and install entity framework packages
 
