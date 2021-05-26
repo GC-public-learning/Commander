@@ -259,4 +259,4 @@ namespace Commander.Models {
 ~~~~
 dotnet ef database update
 ~~~~
-- check on MSSMS if the tables has beens created
+- check on MSSMS if the tables has been created
