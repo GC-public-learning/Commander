@@ -178,7 +178,7 @@ in terminal : dotnet run then test the urls
 ~~~
 dotnet add package Microsoft.EntityFrameworkCore
 ~~~
-- install this packages to in the same way : 
+- install these packages to in the same way : 
 <br>&emsp;"Microsoft.EntityFrameworkCore.Design" 
 <br>&emsp;"Microsoft.EntityFrameworkCore.SqlServer"
 
