@@ -6,6 +6,11 @@ link of the video course : https://www.youtube.com/watch?v=fmvcAzHpsk8
 
 thanks to the youtuber "Les Jackson" ^^
 
+## the goal
+
+Make a rest API with asp.net core with 2021 professional conventional ways
+- use of Entity Framework to create and manage the DB in code 1st 
+- use of MVC architecture 
 
 ## notes
 
