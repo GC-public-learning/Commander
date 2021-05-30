@@ -269,7 +269,7 @@ dotnet ef database update
 
 ## 5) add real data manually and handle it
 
-- put data manually in the mssms (2 records is enough)
+- add manually 2 records on the "commands" table with "mssms"
 - rename the "GetAppCommands()" by "GetAllCommands()" in the "ICommanderRepo" interface and 
 update the files that use the old commmand with the new method name.
 - create a new file in the Data/ folder : SqlCommanderRepo.cs :
