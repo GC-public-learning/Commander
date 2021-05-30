@@ -13,10 +13,7 @@ Make a rest API with asp.net core with 2021 professional conventional ways
 - use of MVC architecture 
 
 ## technos
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc.JPG" alt="asp Nnet core 5 mvc" height="100"><img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.png" alt="SQL server 2019" height="100">
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc.JPG" alt="asp Nnet core 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.png" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">
 
 ## notes
 
