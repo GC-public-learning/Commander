@@ -265,3 +265,42 @@ namespace Commander.Models {
 dotnet ef database update
 ~~~~
 - check on MSSMS if the tables has been created
+
+
+## 5) add real data manually and handle it
+
+- put data manually in the mssms (2 records is enough)
+- rename the "GetAppCommands()" by "GetAllCommands()" in the "ICommanderRepo" interface and 
+update the artifacts that use the old commmand by replacing the old call by the newest name.
+- create a new file in the Data/ folder : SqlCommanderRepo.cs :
+~~~
+using System.Collections.Generic;
+using System.Linq;
+using Commander.Models;
+
+namespace Commander.Data {
+    public class SqlCommanderRepo : ICommanderRepo {
+        private readonly CommanderContext _context;
+        public SqlCommanderRepo(CommanderContext context) {
+            _context = context;
+        }
+        public IEnumerable<Command> GetAllCommands() {
+            return _context.Commands.ToList();
+        }
+
+        public Command GetCommandById(int id) {
+            return _context.Commands.FirstOrDefault(p => p.Id == id);
+        }
+    }
+}
+~~~
+- on the "Startup.cs" file make the line that uses the Mock repo in commentary and add a new line in order to use the SqlCommanderRepo instead the MockCommanderRepo (fake data):
+~~~
+//services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+~~~
+- test the urls after build and run on the vscode terminal :
+~~~
+dotnet build
+dotnet run
+~~~
