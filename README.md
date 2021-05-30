@@ -271,7 +271,7 @@ dotnet ef database update
 
 - put data manually in the mssms (2 records is enough)
 - rename the "GetAppCommands()" by "GetAllCommands()" in the "ICommanderRepo" interface and 
-update the artifacts that use the old commmand by replacing the old call by the newest name.
+update the files that use the old commmand with the new method name.
 - create a new file in the Data/ folder : SqlCommanderRepo.cs :
 ~~~
 using System.Collections.Generic;
