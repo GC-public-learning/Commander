@@ -12,6 +12,9 @@ Make a rest API with asp.net core with 2021 professional conventional ways
 - use of Entity Framework to create and manage the DB in code 1st 
 - use of MVC architecture 
 
+## technos
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc.JPG" alt="asp mvc" height="200">
+
 ## notes
 
 the project was generated with the .net 5.0.203
