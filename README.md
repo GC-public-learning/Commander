@@ -309,7 +309,7 @@ dotnet build
 dotnet run
 ~~~
 
-## 6) configure the DTO in order to map the serialised obects only with the information needed by the client
+## 6) configure the DTO in order to map the serialised objects only with the information needed by the client
 
 - install "AutoMapper.Extensions.Microsoft.DependencyInjection" via nuget.org in the same way than EF 5
 
