@@ -9,7 +9,7 @@ thanks to the youtuber "Les Jackson" ^^
 ## the goal
 
 Make a MVC rest API asp.net core with 2021 professional conventional ways
-use of nuget packages : 
+<br/>use of nuget packages : 
 - "Entity Framework" to create the DB in code 1st and manage it
 - "Automapper" to map the objects with the DTO architecture
 
