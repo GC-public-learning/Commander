@@ -307,3 +307,102 @@ services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
 dotnet build
 dotnet run
 ~~~
+
+## 6) configure the DTO in order to map the serialised obects only with the information needed by the client
+
+- install "AutoMapper.Extensions.Microsoft.DependencyInjection" via nuget.org in the same way than EF 5
+
+- go startup.cs and add a the automapper service in the "ConfigureServices" method
+~~~
+services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+~~~
+- create a new folder "Dtos" on the project root
+- create CommandReadDto.cs file in this folder
+- copy the content of Command.cd from Models to the new created files and make some modifs :
+~~~
+namespace Commander.Dtos {
+    public class CommandReadDto {
+        public int Id { get; set; }
+ 
+        public string HowTo { get; set; }
+   
+        public string Line { get; set; }
+  
+        // attribute deleted to don't expose this information on the client
+        //public string Plateform { get; set; }
+    }
+}
+~~~
+- create a new folder "Profiles" ont the project root
+- create "CommandsProfile.cs" on this new folder and fill it like that :
+~~~
+using AutoMapper;
+using Commander.Dtos;
+using Commander.Models;
+
+namespace Commander.Profiles {
+    public class CommandsProfile : Profile {
+        public CommandsProfile() {
+            CreateMap<Command, CommandReadDto>();
+        }
+    }
+}
+~~~
+modify "GetCommandByID"from the "CommandsController"  in order to return another error code when the id doesn't exist (204 replaced by notfound(404)) 
+~~~
+// api/commands/{id} -> to get a JSON value
+        [HttpGet("{id}")] 
+        public ActionResult <Command> GetCommandById(int id) {
+            var commandItem = _repository.GetCommandById(id);
+            if(commandItem != null){
+                return Ok(commandItem);
+            }
+            return NotFound(); //404
+
+        
+        }
+~~~
+- modify the controller to use the new mapping library with the dto and modify the methods to use "CommandReadDto" instead "Command" : 
+~~~
+using System.Collections.Generic;
+using AutoMapper;
+using Commander.Data;
+using Commander.Dtos;
+using Commander.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Commander.Controllers{
+
+    // api/commands
+    [Route("api/[controller]")] 
+    [ApiController]
+    public class CommandsController : ControllerBase {
+
+        private readonly ICommanderRepo _repository;
+        private readonly IMapper _mapper;
+
+        public CommandsController(ICommanderRepo repository, IMapper mapper) {
+        _repository = repository;
+        _mapper = mapper;
+        }
+
+        [HttpGet]
+        public ActionResult <IEnumerable<CommandReadDto>> GetAllCommands() {
+            var commandItems = _repository.GetAllCommands();
+            return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItems)); // Ok -> code 200
+        }
+
+        // api/commands/{id} -> to get a JSON value
+        [HttpGet("{id}")] 
+        public ActionResult <CommandReadDto> GetCommandById(int id) {
+            var commandItem = _repository.GetCommandById(id);
+            if(commandItem != null){
+                return Ok(_mapper.Map<CommandReadDto>(commandItem));
+            }
+            return NotFound(); //404
+        }
+    }
+}
+
+~~~
+- when the url are tested, the serialised objects should be displayed without the "plateform" attribute
