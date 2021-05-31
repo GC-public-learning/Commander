@@ -13,7 +13,7 @@ Make a rest API with asp.net core with 2021 professional conventional ways
 - use of MVC architecture 
 
 ## technos
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/automapper.png" alt="Automapper" height="100">
 
 ## notes
 
@@ -405,4 +405,4 @@ namespace Commander.Controllers{
 }
 
 ~~~
-- when the url are tested, the serialised objects should be displayed without the "plateform" attribute
+- when the urls are tested, the serialised objects should be displayed without the "plateform" attribute
