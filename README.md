@@ -8,9 +8,10 @@ thanks to the youtuber "Les Jackson" ^^
 
 ## the goal
 
-Make a rest API with asp.net core with 2021 professional conventional ways
-- use of Entity Framework to create and manage the DB in code 1st 
-- use of MVC architecture 
+Make a MVC rest API asp.net core with 2021 professional conventional ways
+use of nuget packages : 
+- "Entity Framework" to create the DB in code 1st and manage it
+- "Automapper" to map the objects with the DTO architecture
 
 ## technos
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/automapper.png" alt="Automapper" height="100">
