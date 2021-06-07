@@ -173,23 +173,23 @@ in terminal : dotnet run then test the urls
 
 - connection on sql server with MSSMS : server name : localhost and sql server authentification with sa
 - create a specific login for the app
-</br>&emsp;&emsp;- Security/login -> click right/new login
-</br>&emsp;&emsp;&emsp; Login name : CommanderAPI
-</br>&emsp;&emsp;&emsp; sql server authentification
-</br>&emsp;&emsp;&emsp;set up the passwords
-</br>&emsp;&emsp;&emsp; unpick "enforce password policy" and other options
-</br>&emsp;&emsp;&emsp; add sysadmin on Server Roles place
+<br/>&emsp;&emsp;- Security/login -> click right/new login
+<br/>&emsp;&emsp;&emsp; Login name : CommanderAPI
+<br/>&emsp;&emsp;&emsp; sql server authentification
+<br/>&emsp;&emsp;&emsp;set up the passwords
+<br/>&emsp;&emsp;&emsp; unpick "enforce password policy" and other options
+<br/>&emsp;&emsp;&emsp; add sysadmin on Server Roles place
 - disconnect and reconnect as CommanderAPI user
 - go nuget.org and search entityframework
-</br>&emsp;&emsp;- select Microsoft entity frameworkCore
-</br>&emsp;&emsp;- copy the path .NET CLI
-</br>&emsp;&emsp;- paste the path on your vs terminal and execute, you don't have to specify the version ->
+<br/>&emsp;&emsp;- select Microsoft entity frameworkCore
+<br/>&emsp;&emsp;- copy the path .NET CLI
+<br/>&emsp;&emsp;- paste the path on your vs terminal and execute, you don't have to specify the version ->
 ~~~
 dotnet add package Microsoft.EntityFrameworkCore
 ~~~
 - install these packages to in the same way : 
-<br>&emsp;"Microsoft.EntityFrameworkCore.Design" 
-<br>&emsp;"Microsoft.EntityFrameworkCore.SqlServer"
+<br/>&emsp;"Microsoft.EntityFrameworkCore.Design" 
+<br/>&emsp;"Microsoft.EntityFrameworkCore.SqlServer"
 
 all the installed packages should appear on the .csproj file
 ~~~
@@ -407,3 +407,69 @@ namespace Commander.Controllers{
 
 ~~~
 - when the urls are tested, the serialised objects should be displayed without the "plateform" attribute
+
+## 7) add the create command way on the API
+
+- add 2 lines in the "ICommanderRepo" from "Data/" folder in order to create commands :
+~~~
+bool SaveChanges();
+void CreateCommand(Command cmd);
+~~~
+- reimplement de "ICommanderRepo" in "MockCommander.cs" and "SqlCommander.cs" from "Data/" -> "^;"
+- modify the 2 news functions on "SqlCommanderRepo" from "Data/"
+~~~
+public bool SaveChanges() {
+    return (_context.SaveChanges() >= 0);
+}
+public void CreateCommand(Command cmd) {
+    if(cmd == null) {
+        throw new ArgumentNullException(nameof(cmd));
+    }
+    _context.Commands.Add(cmd);
+}
+~~~
+- create "CommandCreateDto.cs" in "Dtos/" :
+~~~
+namespace Commander.Dtos {
+    public class CommandCreateDto {
+        public string HowTo { get; set; }
+        public string Line { get; set; }
+        public string Plateform { get; set; }
+    }
+}
+~~~
+- add a new line in "CommandsProfile()" method in "CommandsProfile.cs from "Profiles/" :
+~~~
+CreateMap<CommandCreateDto, Command>();
+~~~
+- add new method in "CommandsController.cs" from "Controllers/" to create command :
+~~~
+// POST api/commands
+[HttpPost]
+public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto) {
+    var commandModel = _mapper.Map<Command>(commandCreateDto);
+    _repository.CreateCommand(commandModel);
+    _repository.SaveChanges();
+
+    // to show the object unless with needed attributes
+    var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
+
+    return Ok(commandReadDto);
+}
+~~~
+- test the new url with a random json like that (easy with swagger): 
+~~~
+{
+  "howTo": "string",
+  "line": "string",
+  "plateform": "string"
+}
+~~~
+<br/>if everything is ok the api should return a json like that :
+~~~{
+  "id": 3,
+  "howTo": "string",
+  "line": "string",
+}
+~~~
+<br/>a new record should be added on the db
