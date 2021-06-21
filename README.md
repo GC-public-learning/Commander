@@ -493,7 +493,7 @@ get the path of the url to retrieve the command with the "get" method on the hea
 
 ### get an appropriate error code
 
-add headers on "CommandCreateDto" from Dtos in order to retrieve a more suitable error response if the Json is incomplete when a command is created with the POST method. With this way a 400 code error is generated instead a 500 server error code :
+- add headers on "CommandCreateDto" from Dtos in order to retrieve a more suitable error response if the Json is incomplete when a command is created with the POST method. With this way a 400 code error is generated instead a 500 server error code :
 ~~~
 using System.ComponentModel.DataAnnotations;
 
