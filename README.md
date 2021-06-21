@@ -473,3 +473,20 @@ public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreat
 }
 ~~~
 <br/>a new record should be added on the db
+
+## 8) get a 201 status code when a command is creeated by the post method
+
+- complete the name of the header from "GetCommandById()" method on the commandController :
+~~~
+[HttpGet("{id}", Name ="GetCommandById")] 
+~~~
+- change the return of CreateCommand() method from the CommandController to return a 201 status :
+~~~
+// params : route name,  route value, content
+return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, commandReadDto);
+~~~
+- test the post "/api/Commands" by creating a command. The response status code should be 201, with this
+method you can retrieve the new oject created in a mapped json format on the body of the response and also 
+get the path of the url to retrieve the command with the "get" method on the header from the response.
+
+## 9) 
