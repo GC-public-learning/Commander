@@ -27,7 +27,7 @@ namespace Commander.Controllers{
         }
 
         // api/commands/{id} -> to get a JSON value
-        [HttpGet("{id}")] 
+        [HttpGet("{id}", Name ="GetCommandById")] 
         public ActionResult <CommandReadDto> GetCommandById(int id) {
             var commandItem = _repository.GetCommandById(id);
             if(commandItem != null){
@@ -45,7 +45,9 @@ namespace Commander.Controllers{
             // to show the object unless with needed attributes
             var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
 
-            return Ok(commandReadDto);
+            // params : route name,  route value, content
+            return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, commandReadDto);
+            //return Ok(commandReadDto);
         }
     }
 }
