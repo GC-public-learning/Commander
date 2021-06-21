@@ -491,9 +491,9 @@ return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, comm
 method you can retrieve the new oject created in a mapped json format on the body of the response and also 
 get the path of the url to retrieve the command with the "get" method on the header from the response.
 
-### get an approprisate error code
+### get an appropriate error code
 
-add headers on "CommandCreateDto" from Dtos in order to retrieve a more suitable error response if the Json is incomplete when a command is created with the POST method. With this way a 400 code error is generated instead a 500 server error :
+add headers on "CommandCreateDto" from Dtos in order to retrieve a more suitable error response if the Json is incomplete when a command is created with the POST method. With this way a 400 code error is generated instead a 500 server error code :
 ~~~
 using System.ComponentModel.DataAnnotations;
 
