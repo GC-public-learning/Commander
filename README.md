@@ -474,7 +474,7 @@ public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreat
 ~~~
 <br/>a new record should be added on the db
 
-## 8) get a 201 status code when a command is creeated by the post method
+## 8) get a 201 status code when a command is created by the post method
 
 - complete the name of the header from "GetCommandById()" method on the commandController :
 ~~~
