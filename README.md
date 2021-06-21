@@ -474,7 +474,9 @@ public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreat
 ~~~
 <br/>a new record should be added on the db
 
-## 8) get a 201 status code when a command is created by the post method
+## 8) get the best suitable code response from the urls
+
+### get a 201 status code when a command is created by the post method
 
 - complete the name of the header from "GetCommandById()" method on the commandController :
 ~~~
@@ -489,4 +491,21 @@ return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, comm
 method you can retrieve the new oject created in a mapped json format on the body of the response and also 
 get the path of the url to retrieve the command with the "get" method on the header from the response.
 
-## 9) 
+### get an approprisate error code
+
+add headers on "CommandCreateDto" from Dtos in order to retrieve a more suitable error response if the Json is incomplete when a command is created with the POST method. With this way a 400 code error is generated instead a 500 server error :
+~~~
+using System.ComponentModel.DataAnnotations;
+
+namespace Commander.Dtos {
+    public class CommandCreateDto {
+        [Required]
+        [MaxLength(250)]
+        public string HowTo { get; set; }
+        [Required]
+        public string Line { get; set; }
+        [Required]
+        public string Plateform { get; set; }
+    }
+}
+~~~
