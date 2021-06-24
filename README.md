@@ -510,8 +510,7 @@ namespace Commander.Dtos {
 }
 ~~~
 
-## 8) setup "put" request
-
+## 9) setup "put" request
 - add new line on the "ICommanderRepo" interface from "Data/" folder :
 ~~~
 void UpdateCommand(Command cmd);
