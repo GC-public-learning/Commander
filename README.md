@@ -474,7 +474,7 @@ public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreat
 ~~~
 <br/>a new record should be added on the db
 
-## 8) get the best suitable code response from the urls
+## 8) get the best suitable status codes from the uris
 
 ### get a 201 status code when a command is created by the post method
 
