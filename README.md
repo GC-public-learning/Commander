@@ -510,7 +510,7 @@ namespace Commander.Dtos {
 }
 ~~~
 
-## 9) setup "put" request -> update a command (replace de old command by the new one)
+## 9) setup "put" request -> update a command (replace an old command by a new one)
 - add new line on the "ICommanderRepo" interface from "Data/" folder :
 ~~~
 void UpdateCommand(Command cmd);
