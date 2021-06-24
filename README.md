@@ -510,7 +510,7 @@ namespace Commander.Dtos {
 }
 ~~~
 
-## 8) setup put request
+## 8) setup "put" request
 
 - add new line on the "ICommanderRepo" interface from "Data/" folder :
 ~~~
@@ -523,7 +523,21 @@ void UpdateCommand(Command cmd);
 - add new line on "CommandsProfile.cs" from "Profiles/" folder :
 ~~~
 CreateMap<CommandUpdateDto, Command>();
-
 ~~~
-
+add "UpdateCommand()" method on "CommandsController.cs" from "Controllers/" folder :
+~~~
+// PUT api/commands/{id}
+[HttpPut("{id}")]
+public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto) {
+    var commandModelFromRepo = _repository.GetCommandById(id);
+    if(commandModelFromRepo == null) {
+        return NotFound();
+    }
+    _mapper.Map(commandUpdateDto, commandModelFromRepo);
+    _repository.UpdateCommand(commandModelFromRepo);
+    _repository.SaveChanges();
+    return NoContent(); // 204
+}
+~~~
+- test the new uri ("api/commands/{id}") by sending a new json object with any id. the status code should be 204
 

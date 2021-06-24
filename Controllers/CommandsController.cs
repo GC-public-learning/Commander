@@ -46,7 +46,7 @@ namespace Commander.Controllers{
             var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
 
             // params : route name,  route value, content
-            return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, commandReadDto);
+            return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, commandReadDto); // 201
             //return Ok(commandReadDto);
         }
         // PUT api/commands/{id}
@@ -56,7 +56,10 @@ namespace Commander.Controllers{
             if(commandModelFromRepo == null) {
                 return NotFound();
             }
-            
+            _mapper.Map(commandUpdateDto, commandModelFromRepo);
+            _repository.UpdateCommand(commandModelFromRepo);
+            _repository.SaveChanges();
+            return NoContent(); // 204
         }
     }
 }
