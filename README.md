@@ -37,7 +37,7 @@ go vs studio code
 delete the forecast controler file
 <br/>delete the model class weatherforecast.cs to
 
-## 1) create 1st controller with route and fake data to retrieve
+## 1) setup the 2 "GET" requests, create 1st controller with route and fake data to retrieve
 
 <br/>create the [Models/](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Models) folder
 <br/>&emsp;create "Command.cs" file in the "Models folder" to make the class : 
@@ -408,7 +408,7 @@ namespace Commander.Controllers{
 ~~~
 - when the urls are tested, the serialised objects should be displayed without the "plateform" attribute
 
-## 7) add the create command way on the API
+## 7) Setup "post" request -> add the create command way on the API
 
 - add 2 lines in the "ICommanderRepo" from "Data/" folder in order to create commands :
 ~~~
@@ -510,7 +510,7 @@ namespace Commander.Dtos {
 }
 ~~~
 
-## 9) setup "put" request
+## 9) setup "put" request -> update a command (replace de old command by the new one)
 - add new line on the "ICommanderRepo" interface from "Data/" folder :
 ~~~
 void UpdateCommand(Command cmd);
