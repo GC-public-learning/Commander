@@ -26,8 +26,11 @@ namespace Commander.Data{
             return new Command{Id=0, HowTo="Boil an egg", Line="Boil water", Plateform="Kettle & Pan"};
         }
 
-        public bool SaveChanges()
-        {
+        public bool SaveChanges() {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateCommand(Command cmd) {
             throw new System.NotImplementedException();
         }
     }

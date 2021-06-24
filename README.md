@@ -509,3 +509,21 @@ namespace Commander.Dtos {
     }
 }
 ~~~
+
+## 8) setup put request
+
+- add new line on the "ICommanderRepo" interface from "Data/" folder :
+~~~
+void UpdateCommand(Command cmd);
+~~~
+-
+- reimplement interface on the "MockCommanderRepo" from "Data/" folder (^; on the interface)
+- reimplement interface on the "SqlCommanderRepo" from "Data/" folder and empty the update method
+- create "CommandUpdateDto.cs" in the "Dtos" folder and copy the content from "CommandCreateDto" on it with replace the class name
+- add new line on "CommandsProfile.cs" from "Profiles/" folder :
+~~~
+CreateMap<CommandUpdateDto, Command>();
+
+~~~
+
+
