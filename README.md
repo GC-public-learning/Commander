@@ -14,7 +14,7 @@ Make a MVC rest API asp.net core with 2021 professional conventional ways
 - "Microsoft.EntityFrameworkCore.Design" to use design time for "migration"
 - "Microsoft.EntityFrameworkCore.SqlServer" to use "SqlServer"
 - "Automapper" to map the objects with the DTO architecture
-- "Microsoft.AspNetCore.JsonPatch" to modify the attributes from the objects separately thank to a json file (add, remove, replace, copy, move test operations are available) ex format : 
+- "Microsoft.AspNetCore.JsonPatch" to modify the attributes from the objects separately thank to a json file (add, remove, replace, copy, move, test operations are available) ex format : 
 ~~~
 [
     { "op": "add", "path": "/myPath", "value": ["myValue"] }
