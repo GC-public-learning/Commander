@@ -8,8 +8,9 @@ thanks to the youtuber "Les Jackson" ^^
 
 ## the goal
 
-Make a MVC rest API asp.net core with 2021 professional conventional ways
-<br/>additional nuget packages : 
+#### Make a MVC rest API asp.net core with 2021 professional conventional ways
+#### use of GET, POST, PUT, PATCH, DELETE requests
+#### additional nuget packages : 
 - "Microsoft.EntityFrameworkCore" to create the DB in code 1st and manage it
 - "Microsoft.EntityFrameworkCore.Design" to use design time for "migration"
 - "Microsoft.EntityFrameworkCore.SqlServer" to use "SqlServer"
