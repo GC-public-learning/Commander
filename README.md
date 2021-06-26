@@ -7,10 +7,13 @@ link of the video course : https://www.youtube.com/watch?v=fmvcAzHpsk8
 thanks to the youtuber "Les Jackson" ^^
 
 ## the goal
-
 #### Make a MVC rest API asp.net core with 2021 professional conventional ways
 #### use of GET, POST, PUT, PATCH, DELETE requests
-#### additional nuget packages : 
+
+## technos
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/automapper.png" alt="Automapper" height="100">
+
+## additional nuget packages : 
 - "Microsoft.EntityFrameworkCore" to create the DB in code 1st and manage it
 - "Microsoft.EntityFrameworkCore.Design" to use design time for "migration"
 - "Microsoft.EntityFrameworkCore.SqlServer" to use "SqlServer"
@@ -24,11 +27,7 @@ thanks to the youtuber "Les Jackson" ^^
 - "Microsoft.AspNetCore.Mvc.NewtonsoftJson" to customize the Json serialization and deserialization 
 
 
-## technos
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/automapper.png" alt="Automapper" height="100">
-
 ## notes
-
 the project was generated with the .net 5.0.203
 <br>with this new version, new features have been added like "open API" (Swagger) which with you'll easily test urls and automaticaly generate documentation
 
