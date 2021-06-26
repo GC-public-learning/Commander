@@ -9,9 +9,19 @@ thanks to the youtuber "Les Jackson" ^^
 ## the goal
 
 Make a MVC rest API asp.net core with 2021 professional conventional ways
-<br/>use of nuget packages : 
-- "Entity Framework" to create the DB in code 1st and manage it
+<br/>additional nuget packages : 
+- "Microsoft.EntityFrameworkCore" to create the DB in code 1st and manage it
+- "Microsoft.EntityFrameworkCore.Design" to use design time for "migration"
+- "Microsoft.EntityFrameworkCore.SqlServer" to use "SqlServer"
 - "Automapper" to map the objects with the DTO architecture
+- "Microsoft.AspNetCore.JsonPatch" to modify the attributes from the objects separately thank to a json file (add, remove, replace, copy, move test operations are available) ex format : 
+~~~
+[
+    { "op": "add", "path": "/myPath", "value": ["myValue"] }
+]
+~~~
+- "Microsoft.AspNetCore.Mvc.NewtonsoftJson" to customize the Json serialization and deserialization 
+
 
 ## technos
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/automapper.png" alt="Automapper" height="100">
@@ -408,7 +418,7 @@ namespace Commander.Controllers{
 ~~~
 - when the urls are tested, the serialised objects should be displayed without the "plateform" attribute
 
-## 7) Setup "post" request -> add the create command way on the API
+## 7) Setup "POST" request -> add the create command way on the API
 
 - add 2 lines in the "ICommanderRepo" from "Data/" folder in order to create commands :
 ~~~
@@ -510,7 +520,7 @@ namespace Commander.Dtos {
 }
 ~~~
 
-## 9) setup "put" request -> update a command (replace an old command by a new one)
+## 9) setup "PUT" request -> update a command (replace an old command by a new one)
 - add new line on the "ICommanderRepo" interface from "Data/" folder :
 ~~~
 void UpdateCommand(Command cmd);
@@ -539,3 +549,60 @@ public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto) {
 ~~~
 - test the new uri ("api/commands/{id}") by sending a new json object with any id. the status code should be 204
 
+## 10) setup "PATCH" request -> make a partial update on a record (choosing the attributes to replace)
+
+- Install "Microsoft.AspNetCore.JsonPatch", go nuget.org to copy the ".net cli" path. (version doesn't needed)
+~~~
+dotnet add package Microsoft.AspNetCore.JsonPatch
+~~~
+- Install "Microsoft.AspNetCore.Mvc.NewtonsoftJson " with nuget.org to
+~~~
+dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
+~~~
+- add new lines on "Startup.cs" file :
+~~~
+// header
+using Newtonsoft.Json.Serialization;
+
+// inside ConfigureServices() method
+services.AddControllers().AddNewtonsoftJson(s => {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+});
+~~~
+- addnew line on "CommandsProfile.cs" from "Profiles/" folder inside "CommandsProfile()"" method :
+~~~
+CreateMap<Command, CommandUpdateDto>();
+~~~
+- add the "PATCH" request on "CommandsController" : 
+~~~
+using Microsoft.AspNetCore.JsonPatch;
+
+// PATCH api/commands/{id}
+[HttpPatch("{id}")]
+public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdateDto> patchDoc) {
+    var commandModelFromRepo = _repository.GetCommandById(id);
+    if(commandModelFromRepo == null) {
+        return NotFound();
+    }
+    
+    var commandToPatch = _mapper.Map<CommandUpdateDto>(commandModelFromRepo);
+    patchDoc.ApplyTo(commandToPatch, ModelState);
+    if(!TryValidateModel(commandToPatch)) {
+        return ValidationProblem();
+    }
+    _mapper.Map(commandToPatch, commandModelFromRepo);
+    _repository.UpdateCommand(commandModelFromRepo);
+    _repository.SaveChanges();
+    return NoContent();
+}
+~~~
+- test the new uri, by replacing an attribute :
+~~~
+[
+  {
+    "path": "/howto",
+    "op": "replace",
+    "value": "replaced 26/06"
+  }
+]
+~~~
