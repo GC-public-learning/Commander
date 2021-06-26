@@ -29,7 +29,7 @@ thanks to the youtuber "Les Jackson" ^^
 
 ## notes
 the project was generated with the .net 5.0.203
-<br>with this new version, new features have been added like "open API" (Swagger) which with you'll easily test urls and automaticaly generate documentation
+<br>with this new version, new features have been added like "open API" (Swagger) which with you'll easily test uris and automaticaly generate documentation
 
 ## instructions
 
