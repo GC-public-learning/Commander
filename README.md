@@ -48,7 +48,7 @@ the project was generated with the .net 5.0.203
 go vs studio code
 <br/>go terminal
 <br/><br/>&emsp;go your folder project
-<br&emsp;tape commands :
+<br>&emsp;tape commands :
 <br/>&emsp;&emsp;- dotnet new (see all available projects)
 <br/>&emsp;&emsp;- dotnet new webapi -n Commander (Commander is the  project name)
 <br/>&emsp;&emsp;- code -r Commander (open in existing window)
