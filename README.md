@@ -54,7 +54,7 @@ go vs studio code
 <br/>&emsp;&emsp;- code -r Commander (open in existing window)
 
 ### Preparation
-delete the forecast controler file
+delete the forecast controller file
 <br/>delete the model class weatherforecast.cs to
 
 ## 1) Setup the 2 "GET" requests, create 1st controller with route and fake data to retrieve
