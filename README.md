@@ -369,7 +369,7 @@ namespace Commander.Profiles {
     }
 }
 ~~~
-modify "GetCommandByID"from the "CommandsController"  in order to return another error code when the id doesn't exist (204 replaced by notfound(404)) 
+- modify "GetCommandByID"from the "CommandsController"  in order to return another error code when the id doesn't exist (204 replaced by notfound(404)) 
 ~~~
 // api/commands/{id} -> to get a JSON value
         [HttpGet("{id}")] 
