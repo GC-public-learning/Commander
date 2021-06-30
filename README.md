@@ -30,7 +30,7 @@ thanks to the youtuber "Les Jackson" ^^
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="600">
 ### End points
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_end_points.JPG" alt="api end points" height="600">
-### Cover points
+### Cover points (titles and numbers has been adaptaded depending on commits) 
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/cover_points.jpg" alt="cover points" height="600">
 ### Swagger uris
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/swagger_uris.JPG" alt="swagger uris" height="600">
