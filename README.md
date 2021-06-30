@@ -606,3 +606,38 @@ public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdate
   }
 ]
 ~~~
+
+## 11) setup "DELETE" request -> Remove  a record on the Command table from the db
+
+- add new line on "ICommanderRepo.cd" from "Data/" folder :
+~~~
+void DeleteCommand(Command id);
+~~~
+- reimplement interface for "MockCommanderRepo.cs"
+- reimplement interface for "SqlCommanderRepo.cs" and fill the "DeleteCommand()" method :
+~~~
+public void DeleteCommand(Command cmd) {
+    if(cmd == null) {
+        throw new ArgumentNullException(nameof(cmd));
+    }
+    _context.Commands.Remove(cmd);
+}
+~~~ 
+- Add the last ActionResult on "CommandsController.cs" :
+~~~
+// DELETE api/commands/{id}
+[HttpDelete("{id}")]
+public ActionResult DeleteCommand(int id) {
+    var commandModelFromRepo = _repository.GetCommandById(id);
+    if(commandModelFromRepo == null) {
+        return NotFound();
+    }
+    _repository.DeleteCommand(commandModelFromRepo);
+    _repository.SaveChanges();
+    return NoContent();
+}
+~~~
+- test the new uri DELETE /api/Commands/{id} with a random id, the status code should be 204 and the data should be removed from the db
+
+
+
