@@ -25,7 +25,7 @@ thanks to the youtuber "Les Jackson" ^^
 ]
 ~~~
 - "Microsoft.AspNetCore.Mvc.NewtonsoftJson" to customize the Json serialization and deserialization 
-
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="1024">
 
 ## notes
 the project was generated with the .net 5.0.203
@@ -607,7 +607,7 @@ public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdate
 ]
 ~~~
 
-## 11) setup "DELETE" request -> Remove  a record on the Command table from the db
+## 11) setup "DELETE" request -> Remove  a record on the "Commands"table from the db
 
 - add new line on "ICommanderRepo.cd" from "Data/" folder :
 ~~~
