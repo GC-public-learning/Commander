@@ -27,13 +27,13 @@ thanks to the youtuber "Les Jackson" ^^
 - "Microsoft.AspNetCore.Mvc.NewtonsoftJson" to customize the Json serialization and deserialization 
 ## Shemas
 ### Architecture
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="600">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="600"><br>
 ### End points
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_end_points.JPG" alt="api end points" height="600">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_end_points.JPG" alt="api end points" height="600"><br>
 ### Cover points (titles and numbers has been adaptaded depending on commits) 
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/cover_points.jpg" alt="cover points" height="600">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/cover_points.jpg" alt="cover points" height="600"><br>
 ### Swagger uris
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/swagger_uris.JPG" alt="swagger uris" height="600">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/swagger_uris.JPG" alt="swagger uris" height="600"><br>
 ### Swagger Classes Shemas 
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/swagger_shemas.jpg" alt="swagger shemas" height="600">
 
