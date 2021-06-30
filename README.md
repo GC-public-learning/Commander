@@ -6,14 +6,14 @@ link of the video course : https://www.youtube.com/watch?v=fmvcAzHpsk8
 
 thanks to the youtuber "Les Jackson" ^^
 
-## the goal
+## The goal
 #### Make a MVC rest API asp.net core with 2021 professional conventional ways
 #### use of GET, POST, PUT, PATCH, DELETE requests
 
-## technos
+## Technos
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ASP_mvc_5.jpg" alt="asp net 5 mvc" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/dotnetcore.png" alt="dotnet core" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/c.png" alt="c#" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/ef5.JPG" alt="Entity Framework 5" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/sqlserver2019.jpg" alt="SQL server 2019" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/open_api.png" alt="open Api" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/vscode.png" alt="VS code" height="100">&emsp;<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/automapper.png" alt="Automapper" height="100">
 
-## additional nuget packages : 
+## Additional nuget packages : 
 - "Microsoft.EntityFrameworkCore" to create the DB in code 1st and manage it
 - "Microsoft.EntityFrameworkCore.Design" to use design time for "migration"
 - "Microsoft.EntityFrameworkCore.SqlServer" to use "SqlServer"
@@ -25,15 +25,25 @@ thanks to the youtuber "Les Jackson" ^^
 ]
 ~~~
 - "Microsoft.AspNetCore.Mvc.NewtonsoftJson" to customize the Json serialization and deserialization 
+## Shemas
+### Architecture
 <img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="600">
+### End points
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_end_points.JPG" alt="api end points" height="600">
+### Cover points
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/cover_points.jpg" alt="cover points" height="600">
+### Swagger uris
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/swagger_uris.JPG" alt="swagger uris" height="600">
+### Swagger Classes Shemas 
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/swagger_shemas.jpg" alt="swagger shemas" height="600">
 
-## notes
+## Notes
 the project was generated with the .net 5.0.203
 <br>with this new version, new features have been added like "open API" (Swagger) which with you'll easily test uris and automaticaly generate documentation
 
-## instructions
+## Instructions
 
-### install
+### Install
 
 go vs studio code
 <br/>go terminal
@@ -43,11 +53,11 @@ go vs studio code
 <br/>&emsp;&emsp;- dotnet new webapi -n Commander (Commander is the  project name)
 <br/>&emsp;&emsp;- code -r Commander (open in existing window)
 
-### preparation
+### Preparation
 delete the forecast controler file
 <br/>delete the model class weatherforecast.cs to
 
-## 1) setup the 2 "GET" requests, create 1st controller with route and fake data to retrieve
+## 1) Setup the 2 "GET" requests, create 1st controller with route and fake data to retrieve
 
 <br/>create the [Models/](https://github.com/Geoffrey-Carpentier/Commander/tree/main/Models) folder
 <br/>&emsp;create "Command.cs" file in the "Models folder" to make the class : 
@@ -134,7 +144,7 @@ namespace Commander.Controllers{
 
 ~~~
 
-### test
+### Test
 <br/>&emsp; - go vs studio terminal (^ SHIFT ù) : 
 ~~~
 dotnet run
@@ -150,7 +160,7 @@ https://localhost:5001/swagger/index.html (if the 1st url doesn't make work the 
 ~~~
 if you want to use Swagger and you have an older version of dotnet you can install this one with the nuget package manager
 
-## 2) configure the dependency injection container
+## 2) Configure the dependency injection container
 
 modify "ConfigureServices" method in the "Startup.cs" file :
 ~~~
@@ -179,7 +189,7 @@ public CommandsController(ICommanderRepo repository) {
 ### test :
 in terminal : dotnet run then test the urls
 
-## 3) set up database and install entity framework packages
+## 3) Setup database and install entity framework packages
 
 - connection on sql server with MSSMS : server name : localhost and sql server authentification with sa
 - create a specific login for the app
@@ -220,7 +230,7 @@ dotnet tool install --global dotnet-ef
 ~~~
 
 
-## 4) configure dbContext, ConnectionString and update de db with our model (not data yet)
+## 4) Configure dbContext, ConnectionString and update de db with our model (not data yet)
 
 - create "CommanderContext.cs" file on the Data folder :
 
@@ -281,7 +291,7 @@ dotnet ef database update
 - check on MSSMS if the tables has been created
 
 
-## 5) add real data manually and handle it
+## 5) Add real data manually and handle it
 
 - add manually 2 records on the "commands" table with "mssms"
 - rename the "GetAppCommands()" by "GetAllCommands()" in the "ICommanderRepo" interface and 
@@ -319,7 +329,7 @@ dotnet build
 dotnet run
 ~~~
 
-## 6) configure the DTO in order to map the serialised objects only with the information needed by the client
+## 6) Configure the DTO in order to map the serialised objects only with the information needed by the client
 
 - install "AutoMapper.Extensions.Microsoft.DependencyInjection" via nuget.org in the same way than EF 5
 
@@ -484,7 +494,7 @@ public ActionResult <CommandReadDto> CreateCommand(CommandCreateDto commandCreat
 ~~~
 <br/>a new record should be added on the db
 
-## 8) get the best suitable status codes from the uris
+## 8) Get the best suitable status codes from the uris
 
 ### get a 201 status code when a command is created by the post method
 
@@ -520,7 +530,7 @@ namespace Commander.Dtos {
 }
 ~~~
 
-## 9) setup "PUT" request -> update a command (replace an old command by a new one)
+## 9) Setup "PUT" request -> update a command (replace an old command by a new one)
 - add new line on the "ICommanderRepo" interface from "Data/" folder :
 ~~~
 void UpdateCommand(Command cmd);
@@ -549,7 +559,7 @@ public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto) {
 ~~~
 - test the new uri ("api/commands/{id}") by sending a new json object with any id. the status code should be 204
 
-## 10) setup "PATCH" request -> make a partial update on a record (choosing the attributes to replace)
+## 10) Setup "PATCH" request -> make a partial update on a record (choosing the attributes to replace)
 
 - Install "Microsoft.AspNetCore.JsonPatch", go nuget.org to copy the ".net cli" path. (version doesn't needed)
 ~~~
@@ -607,7 +617,7 @@ public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdate
 ]
 ~~~
 
-## 11) setup "DELETE" request -> Remove  a record on the "Commands"table from the db
+## 11) Setup "DELETE" request -> Remove  a record on the "Commands"table from the db
 
 - add new line on "ICommanderRepo.cd" from "Data/" folder :
 ~~~
