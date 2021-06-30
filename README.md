@@ -25,7 +25,7 @@ thanks to the youtuber "Les Jackson" ^^
 ]
 ~~~
 - "Microsoft.AspNetCore.Mvc.NewtonsoftJson" to customize the Json serialization and deserialization 
-<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="1024">
+<img src="https://github.com/Geoffrey-Carpentier/Commander/blob/main/img/api_archi.jpg" alt="api archi" height="600">
 
 ## notes
 the project was generated with the .net 5.0.203
